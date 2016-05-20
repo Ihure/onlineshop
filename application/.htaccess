@@ -1,0 +1,5 @@
+Deny from all
+# PHP error handling for production servers
+
+# disable display of startup errors
+php_value error_reporting 0

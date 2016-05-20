@@ -1,0 +1,55 @@
+CREATE SCHEMA `onlineshop` ;
+
+CREATE TABLE `onlineshop`.`admin` (
+  `adminid` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `firstname` VARCHAR(45) NULL COMMENT '',
+  `middlename` VARCHAR(45) NULL COMMENT '',
+  `phoneno` VARCHAR(45) NULL COMMENT '',
+  `username` VARCHAR(45) NULL COMMENT '',
+  `password` VARCHAR(45) NULL COMMENT '',
+  `email` VARCHAR(45) NULL COMMENT '',
+  PRIMARY KEY (`adminid`)  COMMENT '');
+
+ALTER TABLE `onlineshop`.`admin` 
+ADD COLUMN `position` VARCHAR(45) NULL DEFAULT 0 COMMENT '' AFTER `email`;
+
+ALTER TABLE `onlineshop`.`admin` 
+ADD COLUMN `prophilephoto` VARCHAR(45) NULL COMMENT '' AFTER `position`;
+
+
+CREATE TABLE `onlineshop`.`catalogue` (
+  `photo` VARCHAR(50) NULL COMMENT '',
+  `category` VARCHAR(45) NULL COMMENT '',
+  `type` VARCHAR(45) NULL COMMENT '',
+  `price` VARCHAR(45) NOT NULL COMMENT '',
+  `itemid` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `briefdesc` LONGTEXT NULL COMMENT '',
+  `name` VARCHAR(45) NULL COMMENT '',
+  PRIMARY KEY (`itemid`)  COMMENT '');
+
+
+CREATE TABLE `onlineshop`.`sizes` (
+  `autoid` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `itemid` VARCHAR(45) NULL COMMENT '',
+  `size` VARCHAR(45) NULL COMMENT '',
+  `quantity` VARCHAR(45) NULL COMMENT '',
+  PRIMARY KEY (`autoid`)  COMMENT '');
+
+
+ALTER TABLE `onlineshop`.`catalogue` 
+CHANGE COLUMN `transdate` `transdate` TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '' ;
+ALTER TABLE `onlineshop`.`catalogue` 
+ADD COLUMN `transdate` TIMESTAMP NULL COMMENT '' AFTER `name`,
+ADD COLUMN `inputby` VARCHAR(45) NULL COMMENT '' AFTER `transdate`;
+
+
+ALTER TABLE `onlineshop`.`admin` 
+ADD COLUMN `transdate` TIMESTAMP NULL COMMENT '' AFTER `prophilephoto`;
+
+
+ALTER TABLE `onlineshop`.`sizes` 
+CHANGE COLUMN `quantity` `quantity` INT NULL DEFAULT NULL COMMENT '' ;
+
+
+ALTER TABLE `onlineshop`.`catalogue` 
+ADD COLUMN `deleted` INT NULL DEFAULT 0 COMMENT '' AFTER `inputby`;

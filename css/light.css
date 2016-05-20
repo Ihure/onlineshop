@@ -1,0 +1,28 @@
+#top{
+	background:#f4f4f4;
+}
+#top a{
+	color:#337;
+}
+#top img{
+	opacity:1;
+}
+#top a:hover, footer a:hover{
+	color:#337;
+}
+
+footer{
+	background:#ddd;
+	border-top:1px solid #ccc;
+}
+#footer{
+	background:#fff;
+}
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6, footer hgroup{
+	color:#333;
+}
+footer input[type='text']{
+	background:#fff;
+	border:1px solid #999;
+	box-shadow: inset 0 0 3px #aaf;
+}
